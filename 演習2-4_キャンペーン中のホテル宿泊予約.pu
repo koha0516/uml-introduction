@@ -1,6 +1,11 @@
 @startuml ユースケース図
+left to right direction
+actor 利用者
 rectangle ホテル宿泊予約 {
+usecase ログイン
 usecase (<u>予約する</u>\nキャンペーン期間中) as input
 input <. (キャンペーン価格で予約する) : <<extend>>
+ログイン <. input : << include >>
+利用者-->input
 }
 @enduml
