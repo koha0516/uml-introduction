@@ -1,0 +1,36 @@
+@startuml
+' skinparam classAttributeIconSize 0
+class A <<stereotype>>{
+
+}
+class B {
+- 属性1:int
+- 属性1:String
+}
+class C {
+---
++ 操作1():void
++ 操作1():String
+}
+class D {
+- 属性1:int
+- 属性1:String
+---
++ 操作1():void
++ 操作1():String
+}
+
+class Employee {
+- id:int
+- name:String
+# depertment:String
+/ 勤続年数:int
+---
++ setId(id: int):void
++ getId():int
++ setName(name: String):void
++ getName():String
++ setDept(dept: String):void
++ getDept():String
+}
+@endrtuml
