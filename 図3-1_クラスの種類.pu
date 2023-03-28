@@ -33,4 +33,5 @@ class Employee {
 + setDept(dept: String):void
 + getDept():String
 }
+hide Employee circle
 @endrtuml
