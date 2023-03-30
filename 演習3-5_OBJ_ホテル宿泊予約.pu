@@ -1,14 +1,36 @@
 @startuml
 left to right direction
-object "Aさん: 宿泊客" as k2 {
+object "ホテルUML: ホテル" as ho {
+- 部屋
 }
-object "Bさん: 宿泊客" as k1 {
+object "宿泊客1: 宿泊客" as cu1 {
+- 名前=Aさん
+- 住所
+- 電話番号
 }
-object "301号室: 部屋" as car1 {
+object "宿泊客2: 宿泊客" as cu2 {
+- 名前=Bさん
+- 住所
+- 電話番号
 }
-object "302号室: 部屋" as car2 {
+object "301号室: 部屋" as ro1 {
+- タイプ=シングル
+- 価格=11000
+- キャンペーン価格=9000
 }
-k1 -- car1
-k1 -- car2
-k2 -- car1
+object "302号室: 部屋" as ro2 {
+- タイプ=シングル
+- 価格=11000
+- キャンペーン価格=9000
+}
+object "303号室: 部屋" as ro3 {
+- タイプ=シングル
+- 価格=11000
+- キャンペーン価格=9000
+}
+ho -- ro1
+ho -- ro2
+ho -- ro3
+cu1 -- ro1
+cu2 -- 304号室
 @enduml
