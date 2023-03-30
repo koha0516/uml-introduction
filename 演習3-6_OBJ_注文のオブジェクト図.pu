@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+object "Aさん: 宿泊客" as k2 {
+日付
+}
+object "Bさん: 宿泊客" as k1 {
+日付
+}
+object "301号室: 部屋" as car1 {
+管理番号=5
+車種
+貸出料金
+}
+object "302号室: 部屋" as car2 {
+管理番号=6
+車種
+貸出料金
+}
+k1 -- car1
+k1 -- car2
+k2 -- car1
+@enduml

@@ -1,0 +1,15 @@
+@startuml 演習3-2 
+left to right direction
+class 医師 {
+---
++ 診察する()
++ 診察記録を作成する()
+}
+class 患者{
+}
+class 医局 {
+    
+}
+医師 "1担当医" ---> "患者*" 患者:診察する
+医局 "1" <-right- "*" 医師:所属する
+@enduml

@@ -1,0 +1,23 @@
+@startuml 演習3-3
+class "利用者" as cu {
+- 名前
+- 住所
+- 電話番号
+}
+class "ホテル" as ho{
+- 部屋
+}
+class "部屋" as ro {
+- タイプ
+- 価格
+- キャンペーン価格
+}
+class "予約" as re {
+- チェックイン日
+- 滞在期間
+- 値段
+}
+ho "1" *--"*" ro
+ho "1" --"*" cu
+re "*" -- "1" cu
+@enduml

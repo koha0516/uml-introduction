@@ -1,4 +1,4 @@
-@startuml
+@startuml 3-2
 left to right direction
 高度情報工学科 "1" -- "*" 学生
 会社 -->社員: 雇う

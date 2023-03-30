@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+object "車1: 車" as c1 {
+}
+object "タイヤ1: タイヤ" as t1 {
+}
+object "タイヤ2: タイヤ" as t2 {
+}
+object "タイヤ3: タイヤ" as t3 {
+}
+object "タイヤ4: タイヤ" as t4 {
+}
+c1 -- t1
+c1 -- t2
+c1 -- t3
+c1 -- t4
+@enduml
