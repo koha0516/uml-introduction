@@ -20,4 +20,5 @@ class "予約" as re {
 ho "1" *--"*" ro
 ho "1" --"*" cu
 re "*" -- "1" cu
+re "1" -- "1" ro
 @enduml
