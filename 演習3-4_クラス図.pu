@@ -5,5 +5,5 @@ class "車" as car {
 class "タイヤ" as ti{
 
 }
-car "1"*--"*" ti
+car "1"*--"4" ti
 @enduml
