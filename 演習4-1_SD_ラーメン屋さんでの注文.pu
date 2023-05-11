@@ -4,7 +4,7 @@
     autonumber
     ' 厳密なUMLに準拠する
     skinparam style strictuml
-    actor "<u>客</u>" as customer
+    actor "<u>:客</u>" as customer
     participant "<u>:フロア店員</u>" as clerk
     participant "<u>:料理人</u>" as cook
 
