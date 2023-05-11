@@ -13,5 +13,6 @@
             activate reserve
 
                 reserve -> reserve : 認証する()
+                user <-- reserve : 認証結果
     deactivate user
 @enduml
