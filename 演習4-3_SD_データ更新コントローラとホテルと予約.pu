@@ -1,0 +1,28 @@
+@startuml データ更新コントローラとホテルと予約
+hide footbox
+'メッセージに自動で番号を降る
+autonumber
+' 厳密なUMLに準拠する
+skinparam style strictuml
+
+participant "<u>controller:コントローラー</u>" as controller
+participant "<u>hotel:ホテル</u>" as hotel
+
+mainframe sd ログイン 
+
+activate  controller
+controller -> hotel : 予約操作呼び出し()
+
+
+    activate hotel
+        create  "<u>予約</u>" as reserve
+        hotel -> reserve : 生成() <<create>>
+        hotel -> hotel : 予約登録()
+
+        controller <-- hotel : 予約成功通知
+        
+    deactivate hotel
+
+deactivate controller
+
+@enduml

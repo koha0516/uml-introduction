@@ -1,0 +1,56 @@
+@startuml 商品を注文する
+hide footbox
+'メッセージに自動で番号を降る
+autonumber
+' 厳密なUMLに準拠する
+skinparam style strictuml
+
+Actor "<u>:会員</u>" as member
+participant "<u>:商品検索画面</u>" as boundary <<boundary>>
+participant "<u>:商品検索コントローラ</u>" as controller <<controller>>
+participant "<u>:商品" as goods <<entity>>
+
+
+mainframe sd 商品を注文する 
+
+member -> boundary : 商品情報を検索する()
+activate  boundary
+    alt 商品番号で検索
+        boundary -> controller : 商品情報を検索する(商品番号)
+        activate controller
+            activate goods
+            controller -> goods : 商品情報を検索する(商品番号)
+            controller <-- goods : 商品情報
+            deactivate goods
+        boundary <-- controller : 商品情報
+        deactivate controller
+    else 商品カテゴリーで検索
+        boundary -> controller : 商品情報を検索する(商品カテゴリー)
+        activate controller
+            create  "<u>:商品カテゴリー</u>" as cate <<entity>>
+            controller -> cate : 生成() <<create>>
+            activate cate
+                controller -> cate : 商品情報を検索する(商品カテゴリー)
+                controller <-- cate : 商品情報
+            deactivate cate
+            boundary <-- controller : 商品情報
+            member <-- boundary : 商品情報
+        deactivate controller
+    end alt
+    boundary -> controller : 商品検索(商品番号)
+    
+    activate  controller
+        create  "<u>:商品</u>" as goods <<entity>>
+
+
+        activate goods
+            boundary <-- goods : 商品情報
+        deactivate goods
+
+        boundary -> boundary : 商品情報表示(商品情報)
+        member <-- boundary : 商品情報
+    deactivate controller
+
+deactivate boundary
+
+@enduml

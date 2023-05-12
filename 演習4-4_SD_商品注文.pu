@@ -1,0 +1,37 @@
+@startuml 商品を注文する
+hide footbox
+'メッセージに自動で番号を降る
+autonumber
+' 厳密なUMLに準拠する
+skinparam style strictuml
+
+Actor "<u>:受注係</u>" as member
+participant "<u>:注文登録画面</u>" as boundary <<boundary>>
+participant "<u>:商品" as goods <<entity>>
+
+mainframe sd 商品を注文する 
+
+member -> boundary : 商品情報確認()
+activate  boundary
+    boundary -> goods : 商品情報取得()
+
+
+    activate goods
+        boundary <-- goods : 商品情報
+    deactivate goods
+
+    boundary -> boundary : 商品情報表示(商品情報)
+    member <-- boundary : 商品情報
+deactivate boundary
+
+member -> boundary : 商品登録(注文情報)
+activate  boundary
+    
+    create  "<u>:注文</u>" as entity <<entity>>
+    boundary -> entity : 生成() <<create>>
+    boundary -> entity : 商品登録(注文情報)
+    boundary <-- entity : 注文完了メッセージ
+    member <-- boundary : 注文完了メッセージ
+deactivate boundary
+
+@enduml
