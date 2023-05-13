@@ -8,49 +8,25 @@ skinparam style strictuml
 Actor "<u>:会員</u>" as member
 participant "<u>:商品検索画面</u>" as boundary <<boundary>>
 participant "<u>:商品検索コントローラ</u>" as controller <<controller>>
-participant "<u>:商品" as goods <<entity>>
 
 
 mainframe sd 商品を注文する 
 
 member -> boundary : 商品情報を検索する()
-activate  boundary
-    alt 商品番号で検索
-        boundary -> controller : 商品情報を検索する(商品番号)
+    activate  boundary
+    boundary -> controller : 商品情報を検索する(商品番号)
         activate controller
-            activate goods
-            controller -> goods : 商品情報を検索する(商品番号)
-            controller <-- goods : 商品情報
-            deactivate goods
-        boundary <-- controller : 商品情報
-        deactivate controller
-    else 商品カテゴリーで検索
-        boundary -> controller : 商品情報を検索する(商品カテゴリー)
-        activate controller
-            create  "<u>:商品カテゴリー</u>" as cate <<entity>>
-            controller -> cate : 生成() <<create>>
-            activate cate
-                controller -> cate : 商品情報を検索する(商品カテゴリー)
-                controller <-- cate : 商品情報
-            deactivate cate
+            create  "<u>:商品</u>" as goods <<entity>>
+            controller --> goods : 生成()　<<create>>
+            loop 0,カテゴリ数
+                create  "<u>:商品カテゴリ</u>" as cate <<entity>>
+                controller --> cate : 生成() <<create>>
+                    controller -> cate : カテゴリを設定する
+            end loop
             boundary <-- controller : 商品情報
-            member <-- boundary : 商品情報
         deactivate controller
-    end alt
-    boundary -> controller : 商品検索(商品番号)
-    
-    activate  controller
-        create  "<u>:商品</u>" as goods <<entity>>
-
-
-        activate goods
-            boundary <-- goods : 商品情報
-        deactivate goods
-
-        boundary -> boundary : 商品情報表示(商品情報)
-        member <-- boundary : 商品情報
-    deactivate controller
-
+    boundary -> boundary : 商品情報を表示(商品情報)    
+    member <-- boundary : 商品情報
 deactivate boundary
 
 @enduml
