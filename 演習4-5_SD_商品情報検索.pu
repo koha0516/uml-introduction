@@ -21,7 +21,7 @@ member -> boundary : 商品情報を検索する()
             loop 0,カテゴリ数
                 create  "<u>:商品カテゴリ</u>" as cate <<entity>>
                 controller --> cate : 生成() <<create>>
-                    controller -> cate : カテゴリを設定する
+                    controller -> cate : 商品カテゴリを設定
             end loop
             boundary <-- controller : 商品情報
         deactivate controller
