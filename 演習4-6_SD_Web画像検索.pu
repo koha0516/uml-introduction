@@ -25,7 +25,7 @@ activate  b
         w -> w : 画像ファイル可視化(画像ファイル)
         b <-- w : 画像ファイル
     deactivate w
-    b -> b : 画像ファイル再生
+    b -> b : 画像ファイル再生()
 u <-- b : 画像
 deactivate b
 
