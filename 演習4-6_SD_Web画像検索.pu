@@ -1,0 +1,32 @@
+@startuml web画像検索
+hide footbox
+'メッセージに自動で番号を降る
+autonumber
+' 厳密なUMLに準拠する
+skinparam style strictuml
+
+Actor "<u>:ユーザ</u>" as u
+participant "<u>:ブラウザ</u>" as b
+participant "<u>:Webサーバ" as w
+participant "<u>:画像サーバ" as p
+
+mainframe sd 商品を注文する 
+
+u -> b : 画像リンク押下()
+activate  b
+    b -> w : 画像検索(ファイル名)
+
+
+    activate w
+        w -> p : 画像検索(ファイル名)
+        activate p
+        w <-- p : 画像ファイル
+        deactivate p
+        w -> w : 画像ファイル可視化(画像ファイル)
+        b <-- w : 画像ファイル
+    deactivate w
+    b -> b : 画像ファイル再生
+u <-- b : 画像
+deactivate b
+
+@enduml
