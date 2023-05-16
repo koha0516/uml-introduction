@@ -30,7 +30,9 @@ activate  boundary
     create  "<u>:注文</u>" as entity <<entity>>
     boundary -> entity : 生成() <<create>>
     boundary -> entity : 商品登録(注文情報)
+    activate entity
     boundary <-- entity : 注文完了メッセージ
+    deactivate entity
     member <-- boundary : 注文完了メッセージ
 deactivate boundary
 
