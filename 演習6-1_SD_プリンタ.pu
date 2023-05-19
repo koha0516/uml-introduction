@@ -1,3 +1,11 @@
 @startuml SD_プリンタ
 left to right direction
+state 待機中
+state 印刷中
+state 用紙無し
+
+待機中 --> 印刷中 : 印刷命令あり
+待機中 --> 用紙無し : 印刷命令あり[用紙無し]
+用紙無し --> 印刷中 : 用紙補充
+印刷中 --> 待機中 : 印刷完了
 @enduml
