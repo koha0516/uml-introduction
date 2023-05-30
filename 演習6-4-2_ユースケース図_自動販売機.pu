@@ -2,7 +2,7 @@
 left to right direction
 actor 客
 actor ベンダー
-rectangle 診察予約システム {
+rectangle 自販機システム {
 usecase 料金を入れる
 usecase ボタンを押す
 usecase ドリンクを取り出す
