@@ -1,0 +1,17 @@
+@startuml 演習6-4-1
+class "自動販売機" as ji {
+
+}
+class "ボタン" as button{
+
+}
+class "料金装置" as fee{
+
+}
+class "ベンダー装置" as ve{
+
+}
+ji "1"*--"*" button
+ji "1"*--"1" fee
+ji "1"*--"1" ve
+@enduml

@@ -1,0 +1,31 @@
+@startuml web画像検索
+hide footbox
+'メッセージに自動で番号を降る
+autonumber
+' 厳密なUMLに準拠する
+skinparam style strictuml
+
+Actor "<u>:客</u>" as u
+participant "<u>:料金装置</u>" as b
+participant "<u>:ボタン" as w
+participant "<u>:ベンダー装置" as p
+
+mainframe sd ドリンクを購入する
+
+activate  b
+    activate w
+        activate p
+            u -> b : 料金を入れる()
+            b -> w : 料金受け取り済みのメッセージ
+            u <-- w : 購入可能なドリンクのボタン点灯
+            
+            u -> w : ボタンを押す()
+            w -> p : 選ばれたドリンクの情報
+            p -> p : ドリンクを排出する()
+            u <-- p : ドリンク
+
+        deactivate p
+    deactivate w
+deactivate b
+
+@enduml
