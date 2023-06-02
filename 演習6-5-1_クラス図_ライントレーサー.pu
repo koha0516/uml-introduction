@@ -1,0 +1,25 @@
+@startuml 演習6-5-1
+class "ライントレーサー" as tr {
+
+}
+class "光センサー" as se{
+
+}
+class "右モータ" as ri{
+
+}
+class "左モータ" as le{
+
+}
+class "CPU" as cpu{
+
+}
+class "電源SW" as sw{
+
+}
+tr "1"*--"1" se
+tr "1"*--"1" ri
+tr "1"*--"1" le
+tr "1"*--"1" cpu
+tr "1"*--"1" sw
+@enduml
