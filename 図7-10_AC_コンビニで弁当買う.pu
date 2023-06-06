@@ -11,7 +11,7 @@ fork
 :清算する;
 fork again
 |店員|
-if (温めますか？ is (Yes) then
+if (温めますか？) is (Yes) then
 :弁当を温める;
 else (No)
 :;
